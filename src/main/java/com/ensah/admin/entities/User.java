@@ -8,7 +8,6 @@ import lombok.*;
 import javax.persistence.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -35,8 +34,6 @@ public class User  {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String photo;
-
     private String website;
 
     private Date dateBirth;
@@ -47,10 +44,11 @@ public class User  {
 
     private boolean isExpired;
 
+    private String photo;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles = new ArrayList<>();
+    private List<Role> authorities = new ArrayList<>();
 
 
 

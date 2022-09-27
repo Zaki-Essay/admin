@@ -81,7 +81,7 @@ public class AdminController {
         if("user".equals(role)){
 
             allList.forEach(userDto -> {
-                    if (userDto.getRoles().stream().anyMatch(r -> r.getId()==2)){
+                    if (userDto.getAuthorities().stream().anyMatch(r -> r.getId()==2)){
                         userList.add(userDto);
 
                     }
@@ -93,7 +93,7 @@ public class AdminController {
         if("admin".equals(role)){
 
             allList.forEach(userDto -> {
-                    if (userDto.getRoles().stream().anyMatch(r -> r.getId()==1)){
+                    if (userDto.getAuthorities().stream().anyMatch(r -> r.getId()==1)){
                         userList.add(userDto);
 
                     }
@@ -121,11 +121,11 @@ public class AdminController {
         userDtos.forEach((userDto -> {
 
 
-            if(userDto.getRoles().stream().anyMatch(role -> role.getId()==2)){
+            if(userDto.getAuthorities().stream().anyMatch(role -> role.getId()==2)){
                 dashboardInfos.setUsersNumber(dashboardInfos.getUsersNumber()+1);
             }
 
-            if (userDto.getRoles().stream().anyMatch(role -> role.getId()==1)){
+            if (userDto.getAuthorities().stream().anyMatch(role -> role.getId()==1)){
                 dashboardInfos.setAdminsNumber(dashboardInfos.getAdminsNumber()+1);
             }
 

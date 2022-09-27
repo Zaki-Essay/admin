@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 
 @Setter
@@ -46,7 +43,7 @@ public class UserDto {
 
     private boolean isExpired;
 
-    private Collection<Role> roles;
+    private Collection<Role> authorities;
 
 
 }
