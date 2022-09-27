@@ -36,6 +36,8 @@ public class User  {
 
     private String website;
 
+    private String profession;
+
     private Date dateBirth;
 
     private String password;
