@@ -16,13 +16,13 @@ public class UserController {
     private IUserService userService;
 
     //find user by ID:
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<User> getUserByID(@PathVariable Long id) {
         return userService.getUserByID(id);
     }
 
     //find user by username:
-    @GetMapping("/{username}")
+    @GetMapping("/username/{username}")
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
         return userService.getUserByUsername(username);
     }
@@ -45,13 +45,21 @@ public class UserController {
         return userService.addUser(userSignup);
     }
 
-    @PutMapping("/locking/{username}")
-    public void setLockingFalse(@PathVariable String username) {
-        userService.setLockingFalse(username);
+    //by krach achraf
+    @PutMapping("/locking/{username}/{locking}")
+    public void setLocking(@PathVariable String username, @PathVariable boolean locking) {
+        userService.setLocking(username, locking);
     }
 
+    //by krach achraf
     @PutMapping("/password/{username}/{password}")
     public void updatePassword(@PathVariable String username,@PathVariable String password) {
         userService.updatePassword(username, password);
+    }
+
+    //by krach achraf
+    @GetMapping("/get/{usernameOrEmail}")
+    public User getUserByUsernameOrEmail(@PathVariable String usernameOrEmail) {
+        return userService.getUserByUsernameOrEmail(usernameOrEmail);
     }
 }

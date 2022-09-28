@@ -18,8 +18,10 @@ public interface IUserService {
     ResponseEntity<String> addUser(UserSignupDTO userSignup);
 
     //by krach achraf
-    void setLockingFalse(String username);
+    void setLocking(String username, boolean locking);
 
     //by krach achraf
     void updatePassword(String username, String password);
+
+    User getUserByUsernameOrEmail(String usernameOrEmail);
 }

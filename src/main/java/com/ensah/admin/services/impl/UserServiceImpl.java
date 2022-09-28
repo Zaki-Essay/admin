@@ -79,9 +79,9 @@ public class UserServiceImpl implements IUserService {
 
     //by krach achraf
     @Override
-    public void setLockingFalse(String username) {
+    public void setLocking(String username, boolean locking) {
         User user = userDao.findUserByUsername(username);
-        user.setLocked(false);
+        user.setLocked(locking);
         userDao.save(user);
     }
 
@@ -91,5 +91,11 @@ public class UserServiceImpl implements IUserService {
         User user = userDao.findUserByUsername(username);
         user.setPassword(password);
         userDao.save(user);
+    }
+
+    //by krach achraf
+    @Override
+    public User getUserByUsernameOrEmail(String usernameOrEmail) {
+        return userDao.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
     }
 }
